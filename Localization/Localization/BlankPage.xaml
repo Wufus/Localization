@@ -13,7 +13,7 @@
         </Style>
     </Page.Resources>
 
-    <Grid>
+    <ScrollView>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock Text="Локализация" Style="{StaticResource TitleTextBlockStyle}" Margin="12 0 12 12"/>
             <TextBlock Text="Автоматическая замена текста на текущий язык" Style="{StaticResource BodyLargeStrongTextBlockStyle}" Margin="12 0 12 0"/>
@@ -43,6 +43,13 @@
             <TextBlock Text="Из ресурсов в другом файле из другого проекта (../Localizer/Strings/../Errors.resw)" Style="{StaticResource BodyStrongTextBlockStyle}" Margin="12 6 12 0"/>
             <TextBlock Text="String value = new Microsoft.Windows.ApplicationModel.Resources.ResourceLoader(&quot;Localizer.pri&quot;, &quot;Localizer&quot;).GetString(&quot;Errors/TestField&quot;);" Style="{StaticResource XamlCode}"/>
             <TextBlock x:Name="UI_AnotherProjectAnotherFileResources"/>
+            <MenuFlyoutSeparator/>
+            <TextBlock Text="Из ресурсов по умолчанию из другого проекта (../Localizer/Strings/../Resources.resw) вспомогательным кодом" Style="{StaticResource BodyStrongTextBlockStyle}" Margin="12 6 12 0"/>
+            <TextBlock Text="String value = Localizer.Instance.GetString(&quot;Resources/TestField&quot;);" Style="{StaticResource XamlCode}"/>
+            <TextBlock x:Name="UI_AnotherProjectDefaultResources2"/>
+            <TextBlock Text="Из ресурсов в другом файле из другого проекта (../Localizer/Strings/../Errors.resw) вспомогательным кодом" Style="{StaticResource BodyStrongTextBlockStyle}" Margin="12 6 12 0"/>
+            <TextBlock Text="String value = Localizer.Instance.GetString(&quot;Errors/TestField&quot;);" Style="{StaticResource XamlCode}"/>
+            <TextBlock x:Name="UI_AnotherProjectAnotherFileResources2"/>
         </StackPanel>
-    </Grid>
+    </ScrollView>
 </Page>

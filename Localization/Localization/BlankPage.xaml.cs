@@ -37,6 +37,9 @@ namespace Localization
                 UI_AnotherProjectAnotherFileResources.Text = value;
             }
             catch { }
+
+            UI_AnotherProjectDefaultResources2.Text = Localizer.Instance.GetString("Resources/TestField");
+            UI_AnotherProjectAnotherFileResources2.Text = Localizer.Instance.GetString("Errors/TestField");
         }
     }
 }

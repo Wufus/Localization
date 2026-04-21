@@ -1,17 +1,21 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 
 namespace Localizer
 {
-    public static class Localizer
+    /// <summary>
+    /// Use it to programmatically retrive string from PRI resources
+    /// </summary>
+    public static class Instance
     {
 
-        public static Microsoft.Windows.ApplicationModel.Resources.ResourceLoader RL;
+        static Microsoft.Windows.ApplicationModel.Resources.ResourceLoader RL;
 
+        /// <summary>
+        /// Return string from resources or null if not found
+        /// </summary>
+        /// <param name="key">Use / for nesting level</param>
+        /// <returns>value if found, otherwise null</returns>
         public static String GetString(String key)
         {
             if (RL == null)
@@ -22,17 +26,25 @@ namespace Localizer
             }
             catch
             {
+                System.Diagnostics.Debug.WriteLine($"Cannot found string in PRI file by key={key}");
                 return null;
             }
         }
 
+        /// <summary>
+        /// One time loading. All submaps will be acessed via tihs one instance
+        /// </summary>
         static void Load()
         {
             try
             {
-                RL = new Microsoft.Windows.ApplicationModel.Resources.ResourceLoader("Localizer.pri");
+                RL = new Microsoft.Windows.ApplicationModel.Resources.ResourceLoader(nameof(Localizer) + ".pri", nameof(Localizer));
             }
-            catch { }
+            catch (Exception exc)
+            {
+                System.Diagnostics.Debug.WriteLine("Cannot load PRI file:");
+                System.Diagnostics.Debug.WriteLine(exc.Message);
+            }
         }
     }
 }
