@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="Localization.BlankPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Localization"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Page.Resources>
+        <Style x:Key="XamlCode" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="SaddleBrown"/>
+        </Style>
+    </Page.Resources>
+
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="Локализация" Style="{StaticResource TitleTextBlockStyle}" Margin="12 0 12 12"/>
+            <TextBlock Text="Автоматическая замена текста на текущий язык" Style="{StaticResource BodyLargeStrongTextBlockStyle}" Margin="12 0 12 0"/>
+            <TextBlock Text="Из ресурсов по умолчанию (Strings/../Resources.resw)" Style="{StaticResource BodyStrongTextBlockStyle}" Margin="12 6 12 0"/>
+            <TextBlock Text="&lt;TextBlock x:Uid=&quot;Test&quot;/>" Style="{StaticResource XamlCode}"/>
+            <TextBlock x:Uid="Test"/>
+            <TextBlock Text="Из ресурсов в другом файле (Strings/../Errors.resw)" Style="{StaticResource BodyStrongTextBlockStyle}" Margin="12 6 12 0"/>
+            <TextBlock Text="&lt;TextBlock x:Uid=&quot;/Errors/TestError&quot;/>" Style="{StaticResource XamlCode}"/>
+            <TextBlock x:Uid="/Errors/TestError"/>
+            <TextBlock Text="Из ресурсов по умолчанию из другого проекта (../Localizer/Strings/../Resources.resw)" Style="{StaticResource BodyStrongTextBlockStyle}" Margin="12 6 12 0"/>
+            <TextBlock Text="&lt;TextBlock x:Uid=&quot;/Localizer/Resources/Test&quot;/>" Style="{StaticResource XamlCode}"/>
+            <TextBlock x:Uid="/Localizer/Resources/Test"/>
+            <TextBlock Text="Из ресурсов в другом файле из другого проекта (../Localizer/Strings/../Errors.resw)" Style="{StaticResource BodyStrongTextBlockStyle}" Margin="12 6 12 0"/>
+            <TextBlock Text="&lt;TextBlock x:Uid=&quot;/Localizer/Errors/TestError&quot;/>" Style="{StaticResource XamlCode}"/>
+            <TextBlock x:Uid="/Localizer/Errors/TestError"/>
+            <MenuFlyoutSeparator Margin="0 12"/>
+            <TextBlock Text="Программная замена текста на текущий язык" Style="{StaticResource BodyLargeStrongTextBlockStyle}" Margin="12 0 12 0"/>
+            <TextBlock Text="Из ресурсов по умолчанию (Strings/../Resources.resw)" Style="{StaticResource BodyStrongTextBlockStyle}" Margin="12 6 12 0"/>
+            <TextBlock Text="String value = new Microsoft.Windows.ApplicationModel.Resources.ResourceLoader(&quot;Localization.pri&quot;).GetString(&quot;TestField&quot;);" Style="{StaticResource XamlCode}"/>
+            <TextBlock x:Name="UI_ThisProjectDefaultResources"/>
+            <TextBlock Text="Из ресурсов в другом файле (Strings/../Errors.resw)" Style="{StaticResource BodyStrongTextBlockStyle}" Margin="12 6 12 0"/>
+            <TextBlock Text="String value = new Microsoft.Windows.ApplicationModel.Resources.ResourceLoader(&quot;Localization.pri&quot;, &quot;Errors&quot;).GetString(&quot;TestField&quot;);" Style="{StaticResource XamlCode}"/>
+            <TextBlock x:Name="UI_ThisProjectAnotherFileResources"/>
+            <TextBlock Text="Из ресурсов по умолчанию из другого проекта (../Localizer/Strings/../Resources.resw)" Style="{StaticResource BodyStrongTextBlockStyle}" Margin="12 6 12 0"/>
+            <TextBlock Text="String value = new Microsoft.Windows.ApplicationModel.Resources.ResourceLoader(&quot;Localizer.pri&quot;, &quot;Localizer&quot;).GetString(&quot;Resources/TestField&quot;);" Style="{StaticResource XamlCode}"/>
+            <TextBlock x:Name="UI_AnotherProjectDefaultResources"/>
+            <TextBlock Text="Из ресурсов в другом файле из другого проекта (../Localizer/Strings/../Errors.resw)" Style="{StaticResource BodyStrongTextBlockStyle}" Margin="12 6 12 0"/>
+            <TextBlock Text="String value = new Microsoft.Windows.ApplicationModel.Resources.ResourceLoader(&quot;Localizer.pri&quot;, &quot;Localizer&quot;).GetString(&quot;Errors/TestField&quot;);" Style="{StaticResource XamlCode}"/>
+            <TextBlock x:Name="UI_AnotherProjectAnotherFileResources"/>
+        </StackPanel>
+    </Grid>
+</Page>

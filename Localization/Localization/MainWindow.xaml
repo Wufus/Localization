@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window
+    x:Class="Localization.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Localization"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="Localization">
+
+    <Grid>
+        <StackPanel x:Name="UI_LangSelector">
+            <TextBlock Text="Выберите язык"/>
+            <Button Content="Русский ru-RU" Tapped="LangButton_Tapped" Tag="ru-RU"/>
+            <Button Content="Английский en-US" Tapped="LangButton_Tapped" Tag="en-US"/>
+            <Button Content="Африканский af-ZA (не добавлен)" Tapped="LangButton_Tapped" Tag="af-ZA"/>
+            <Button Content="Казахстанский kk-KZ (не добавлен)" Tapped="LangButton_Tapped" Tag="kk-KZ"/>
+            <Button Content="Системный" Tapped="LangButton_Tapped"/>
+        </StackPanel>
+        <Frame x:Name="UI_Frame"/>
+    </Grid>
+</Window>
